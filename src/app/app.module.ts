@@ -12,6 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LiginComponent } from './ligin/ligin.component';
 import { RegisterComponent } from './ligin/register.component';
+//Temporal
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -26,6 +28,7 @@ import { RegisterComponent } from './ligin/register.component';
     AppRoutingModule,
     APP_ROUTES,
     PageModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
