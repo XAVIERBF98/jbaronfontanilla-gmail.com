@@ -120,6 +120,14 @@
           }
         }
       }
-    }},
-  "defaultProject": "siesa"
+    }
+  },
+  "defaultProject": "siesa",
+  "schematics": {
+    "@schematics/angular": {
+      "component": {
+        "spec": false
+      }
+    }
+  }
 }

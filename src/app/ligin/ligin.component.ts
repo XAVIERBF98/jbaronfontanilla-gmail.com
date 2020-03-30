@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
+declare function init_Plugins();
 @Component({
   selector: 'app-ligin',
   templateUrl: './ligin.component.html',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LiginComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) {  }
 
   ngOnInit() {
+    init_Plugins();
   }
-
+ingresar() {
+  this.router.navigate(['/dashboard']);
+}
 }

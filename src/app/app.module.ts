@@ -15,6 +15,9 @@ import { RegisterComponent } from './ligin/register.component';
 //Temporal
 import { FormsModule } from '@angular/forms';
 
+//Servicios
+import { ServiceModule } from './services/service.module';
+
 
 
 @NgModule({
@@ -29,6 +32,7 @@ import { FormsModule } from '@angular/forms';
     APP_ROUTES,
     PageModule,
     FormsModule,
+    ServiceModule
   ],
   providers: [],
   bootstrap: [AppComponent]
