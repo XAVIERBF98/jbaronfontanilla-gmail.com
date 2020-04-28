@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
 import { LiginComponent } from './ligin/ligin.component';
 import { RegisterComponent } from './ligin/register.component';
 //Temporal
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Servicios
 import { ServiceModule } from './services/service.module';
@@ -34,6 +34,7 @@ import { ServiceModule } from './services/service.module';
     APP_ROUTES,
     PageModule,
     FormsModule,
+    ReactiveFormsModule,
     ServiceModule
   ],
   providers: [],
