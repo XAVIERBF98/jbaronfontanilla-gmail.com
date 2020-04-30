@@ -5,6 +5,8 @@ import { Usuario } from '../../models/usuario.model';
 import {HttpClient} from '@angular/common/http';
 import swal from 'sweetalert';
 import { Router } from '@angular/router';
+import { SubirArchivoService } from '../subir-archivo/subir-archivo.service';
+
 
 
 
@@ -17,7 +19,8 @@ token: string;
 
   constructor(
     public http: HttpClient,
-    public router: Router) {
+    public router: Router,
+    public _subirArchivoService: SubirArchivoService) {
     this.getStorage();
    }
 
@@ -50,7 +53,7 @@ logOut(){
     title: "Esta Seguro",
     text: "Desea cerrar Sesión !!",
     icon: "warning",
-    buttons: ["Stop", "Salir"],
+    buttons: ["Cancelar", "Salir"],
     dangerMode: true,
   })
   .then((Salir) => {
@@ -64,7 +67,7 @@ logOut(){
       localStorage.removeItem('usuario');
       this.router.navigate(['/login']);
     } else {
-      swal("Your imaginary file is safe!");
+      swal("Se ha cancelado el Log Out!");
     }
   });
   
@@ -106,5 +109,33 @@ loginGoogle(token: string) {
                     return res.usuario;
     }));
    }
-   
+
+   actualizarUsuario(usuario:Usuario){
+  let url = URL_SERVICIOS + '/usuario/' + usuario._id;
+  url +='?token=' + this.token;
+  return this.http.put(url,usuario).pipe(map(
+    (resp:any) =>{
+      //this.usuario = resp.usuario;
+      let usuarioDB:Usuario = resp.usuario;
+      this.guadarStorage(usuarioDB._id, this.token, usuarioDB )
+      swal('Usuario Actualizado', usuario.nombre, 'success');
+      return true;
+    }
+  ));
+   }
+
+
+
+
+   cambiarImagen(file: File, id: string){
+  this._subirArchivoService.subirArchivo(file,'usuarios',id)
+  .then((resp: any) => {
+    this.usuario.img = resp.usuario.img;
+    swal('Imagen Actualizado', this.usuario.nombre, 'success');
+    this.guadarStorage(id,this.token,this.usuario);
+  })
+  .catch(resp => {
+  console.log(resp);
+  })
+   }
 }

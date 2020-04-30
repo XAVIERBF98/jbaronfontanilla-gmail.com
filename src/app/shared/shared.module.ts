@@ -6,10 +6,12 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { PipesModule } from '../pipes/pipes.module';
 @NgModule({
     imports: [
         RouterModule,
         CommonModule,
+        PipesModule
         ],
     declarations: [
         NopagefoundComponent,
