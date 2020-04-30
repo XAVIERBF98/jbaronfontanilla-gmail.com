@@ -110,15 +110,18 @@ loginGoogle(token: string) {
     }));
    }
 
-   actualizarUsuario(usuario:Usuario){
+   actualizarUsuario(usuario: Usuario){
   let url = URL_SERVICIOS + '/usuario/' + usuario._id;
   url +='?token=' + this.token;
   return this.http.put(url,usuario).pipe(map(
     (resp:any) =>{
-      //this.usuario = resp.usuario;
-      let usuarioDB:Usuario = resp.usuario;
-      this.guadarStorage(usuarioDB._id, this.token, usuarioDB )
+
+      if(usuario._id === this.usuario._id) {
+        let usuarioDB: Usuario = resp.usuario;
+        this.guadarStorage(usuarioDB._id, this.token, usuarioDB )
+      }
       swal('Usuario Actualizado', usuario.nombre, 'success');
+      //this.usuario = resp.usuario;
       return true;
     }
   ));
@@ -128,7 +131,7 @@ loginGoogle(token: string) {
 
 
    cambiarImagen(file: File, id: string){
-  this._subirArchivoService.subirArchivo(file,'usuarios',id)
+  this._subirArchivoService.subirArchivo(file, 'usuarios', id)
   .then((resp: any) => {
     this.usuario.img = resp.usuario.img;
     swal('Imagen Actualizado', this.usuario.nombre, 'success');
@@ -138,4 +141,26 @@ loginGoogle(token: string) {
   console.log(resp);
   })
    }
+
+   cargarUsuarios(desde: number = 0) {
+    let url = URL_SERVICIOS + '/usuario?desde=' + desde;
+    return this.http.get(url);
+   }
+
+   buscarUsuario(termino: string){
+   let url = URL_SERVICIOS + '/busqueda/coleccion/usuarios/' + termino;
+   return this.http.get(url).pipe(map(( resp: any ) =>
+   {
+       resp.usuarios;
+   })
+   );
+  }
+///Borrar Usuario
+borrarUsuario(id:string){
+  let url = URL_SERVICIOS + '/usuario/' + id;
+  url += '?token=' +this.token;
+
+  return this.http.delete(url);
+}
+
 }

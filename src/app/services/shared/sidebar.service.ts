@@ -16,6 +16,17 @@ menu: any = [
     {titulo: 'Promesas', url: '/promesas'},
     {titulo: 'RxJs', url: '/rxjs'}
   ]
+},
+{
+  titulo: 'Mantenimiento',
+  icono: 'mdi mdi-folder-lock-open',
+  submenu:[
+    {titulo:'Usuarios',url:'/usuarios'},
+    {titulo:'Cursos',url:'/cursos'},
+    {titulo:'Profesores',url:'/profesores'},
+    {titulo:'Examenes',url:'/examenes'},
+    {titulo:'Preguntas',url:'/preguntas'},
+  ] 
 }
 ];
 
