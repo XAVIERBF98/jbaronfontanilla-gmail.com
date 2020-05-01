@@ -9,6 +9,9 @@ import { RxjsComponent } from './rxjs/rxjs.component';
 import { LoginGuardGuard } from '../services/service.index';
 import { ProfileComponent } from './profile/profile.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { CursosComponent } from './cursos/cursos.component';
+import { ProfesoresComponent } from './profesores/profesores.component';
+import { ProfesorComponent } from './profesores/profesor.component';
 
 const pagesRoutes: Routes = [
     {
@@ -25,6 +28,9 @@ const pagesRoutes: Routes = [
             {path: 'perfil', component: ProfileComponent, data: {titulo: 'Perfil de Usuario'}},
             //mantenimientos
             {path: 'usuarios', component: UsuariosComponent, data: {titulo: 'Mantenimiento de usuarios'}},
+            {path: 'cursos', component: CursosComponent, data: {titulo: 'Mantenimiento de Cursos'}},
+            {path: 'profesores', component: ProfesoresComponent, data: {titulo: 'Mantenimiento de Profesores'}},
+            {path: 'profesor/:id', component: ProfesorComponent, data: {titulo: 'Actualizar Profesor'}},
             {path: '', redirectTo: '/dashboard' , pathMatch: 'full'},
         ]
     }];

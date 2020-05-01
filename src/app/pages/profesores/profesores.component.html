@@ -1,0 +1,55 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <input #input (keyup)="buscarProfesor(input.value)" type="text" class="form-control" placeholder="Buscar Profesor">
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="text-right">
+                    <button [routerLink]="['/profesor','nuevo']" type="button" class="btn waves-effect waves-light btn-rounded btn-primary">
+                        <i class="fa fa-plus"></i>
+                        Nuevo Profesor
+                    </button>
+                </div>
+                <h3 class="card-title"> Profesores Registrados(<small>{{_profesorService.totalProfesores}}</small>)</h3>
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Foto</th>
+                            <th>Profesor</th>
+                            <th>Curso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let profesor of profesores">
+                            <td><img [src]="profesor.img | imagen:'profesor'" class="img-50"></td>
+                            <td> {{profesor.nombre}} </td>
+                            <td> {{profesor.curso.nombre}} </td>
+                            <td>
+                                <button [routerLink]="['/profesor',profesor._id]" class="btn btn-primary">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+
+                                <button (click)="borrarProfesor(profesor)" class="btn btn-danger">
+                                    <i class="fa fa-trash-o"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button (click)="cambiarDesde(-5)" class=" btn btn-secondary">Anteriores</button>
+                <button (click)="cambiarDesde(5)" class=" btn btn-secondary">Siguientes</button>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -24,6 +24,9 @@ import { PipesModule } from '../pipes/pipes.module';
 import { ProfileComponent } from './profile/profile.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
+import { CursosComponent } from './cursos/cursos.component';
+import { ProfesoresComponent } from './profesores/profesores.component';
+import { ProfesorComponent } from './profesores/profesor.component';
 
 
 @NgModule({
@@ -39,7 +42,10 @@ declarations: [
    RxjsComponent,
    ProfileComponent,
    UsuariosComponent,
-   ModalUploadComponent
+   ModalUploadComponent,
+   CursosComponent,
+   ProfesoresComponent,
+   ProfesorComponent,
 ],
 exports: [
     DashboardComponent,
