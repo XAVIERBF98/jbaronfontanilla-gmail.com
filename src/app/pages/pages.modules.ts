@@ -27,7 +27,14 @@ import { ModalUploadComponent } from '../components/modal-upload/modal-upload.co
 import { CursosComponent } from './cursos/cursos.component';
 import { ProfesoresComponent } from './profesores/profesores.component';
 import { ProfesorComponent } from './profesores/profesor.component';
-
+import { BusquedaComponent } from './busqueda/busqueda.component';
+import { ExamenesComponent } from './examenes/examenes.component';
+import { PreguntasComponent } from './preguntas/preguntas.component';
+import { ExamenComponent } from './examen/examen.component';
+import { PreguntaComponent } from './pregunta/pregunta.component';
+import { ViewPreguntasComponent } from './view-preguntas/view-preguntas.component';
+import { AllExamComponent } from './all-exam/all-exam.component';
+import { LiveTestComponent } from './live-test/live-test.component';
 
 @NgModule({
 declarations: [
@@ -46,6 +53,14 @@ declarations: [
    CursosComponent,
    ProfesoresComponent,
    ProfesorComponent,
+   BusquedaComponent,
+   ExamenesComponent,
+   PreguntasComponent,
+   ExamenComponent,
+   PreguntaComponent,
+   ViewPreguntasComponent,
+   AllExamComponent,
+   LiveTestComponent,
 ],
 exports: [
     DashboardComponent,

@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title"> Examenes Registrados(<small>{{_examenService.totalExamenes}}</small>)</h3>
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Titulo</th>
+                            <th>Descripcion</th>
+                            <th>Tiempo</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let examen of examenes">
+                            <td>{{examen.titulo}}</td>
+                            <td>{{examen.descripcion}} </td>
+                            <td>{{examen.tiempo}}</td>
+                            <td>
+                                <button [routerLink]="['/Viewpreguntas',examen._id]" class=" btn btn-dark ">
+                                    <i class="mdi mdi-eye "></i>
+                                    Ver Preguntas
+                                </button>
+                                <br>
+                                <button [routerLink]="[ '/pregunta',examen._id]" style="margin-top: 5px; " class="btn btn-danger ">
+                                    <i class="fa fa-plus-circle "></i>
+                                    Agregar Preguntas
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button (click)="cambiarDesde(-5) " class=" btn btn-secondary ">Anteriores</button>
+                <button (click)="cambiarDesde(5) " class=" btn btn-secondary ">Siguientes</button>
+
+            </div>
+        </div>
+    </div>
+</div>

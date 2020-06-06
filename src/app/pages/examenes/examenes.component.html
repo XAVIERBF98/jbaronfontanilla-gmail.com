@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="text-right">
+                    <button [routerLink]="['/examen','nuevo']" type="button" class="btn waves-effect waves-light btn-rounded btn-primary">
+                        <i class="fa fa-plus"></i>
+                        Crear Examen
+                    </button>
+                </div>
+                <h3 class="card-title"> Examenes Registrados(<small>{{_examenService.totalExamenes}}</small>)</h3>
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Titulo</th>
+                            <th>Descripcion</th>
+                            <th>Tiempo</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let examen of examenes">
+                            <td>{{examen.titulo}}</td>
+                            <td>{{examen.descripcion}} </td>
+                            <td>{{examen.tiempo}}</td>
+                            <td>
+                                <button [routerLink]="['/examen',examen._id]" class="btn btn-primary">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+
+                                <button class="btn btn-danger">
+                                    <i class="fa fa-trash-o"></i>
+                                </button>
+
+                                <button class="btn btn-dark">
+                                    <i class="fa fa-users"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button (click)="cambiarDesde(-5)" class=" btn btn-secondary">Anteriores</button>
+                <button (click)="cambiarDesde(5)" class=" btn btn-secondary">Siguientes</button>
+
+            </div>
+        </div>
+    </div>
+</div>

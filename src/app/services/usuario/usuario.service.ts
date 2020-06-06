@@ -16,6 +16,7 @@ import { SubirArchivoService } from '../subir-archivo/subir-archivo.service';
 export class UsuarioService {
 usuario: Usuario;
 token: string;
+menu: any[] = [];
 
   constructor(
     public http: HttpClient,
@@ -32,19 +33,24 @@ getStorage(){
   if(localStorage.getItem('token')){
     this.token = localStorage.getItem('token');
     this.usuario = JSON.parse(localStorage.getItem('usuario'));
+    this.menu = JSON.parse(localStorage.getItem('menu'));
+ 
   } else {
     this.token = '';
     this.usuario = null;
+    this.menu = [];
   }
 }
 
 
-guadarStorage(id: string, token: string , usuario: Usuario){
+guadarStorage(id: string, token: string , usuario: Usuario, menu: any){
   localStorage.setItem('id', id);
   localStorage.setItem('token', token);
   localStorage.setItem('usuario', JSON.stringify(usuario));
+  localStorage.setItem('menu', JSON.stringify(menu));
   this.usuario = usuario;
   this.token = token;
+  this.menu = menu;
 }
 
 logOut(){
@@ -63,8 +69,11 @@ logOut(){
       });
       this.token = '';
       this.usuario = null;
+      this.menu = [];
+
       localStorage.removeItem('token');
       localStorage.removeItem('usuario');
+      localStorage.removeItem('menu');
       this.router.navigate(['/login']);
     } else {
       swal("Se ha cancelado el Log Out!");
@@ -76,7 +85,7 @@ logOut(){
 loginGoogle(token: string) {
   let url = URL_SERVICIOS + '/login/google';
   return this.http.post(url, {token}).pipe(map( (resp: any) => {
-    this.guadarStorage(resp.id, resp.token, resp.usuario);
+    this.guadarStorage(resp.id, resp.token, resp.usuario, resp.menu);
     return true;
   }));
 }
@@ -94,7 +103,7 @@ loginGoogle(token: string) {
     const url = URL_SERVICIOS + '/login';
     return this.http.post( url , usuario).pipe(
       map( (resp: any) => {
-        this.guadarStorage(resp.id, resp.token, resp.usuario);
+        this.guadarStorage(resp.id, resp.token, resp.usuario,resp.menu);
 
         return true;
       }));
@@ -118,7 +127,7 @@ loginGoogle(token: string) {
 
       if(usuario._id === this.usuario._id) {
         let usuarioDB: Usuario = resp.usuario;
-        this.guadarStorage(usuarioDB._id, this.token, usuarioDB )
+        this.guadarStorage(usuarioDB._id, this.token, usuarioDB,this.menu )
       }
       swal('Usuario Actualizado', usuario.nombre, 'success');
       //this.usuario = resp.usuario;
@@ -135,7 +144,7 @@ loginGoogle(token: string) {
   .then((resp: any) => {
     this.usuario.img = resp.usuario.img;
     swal('Imagen Actualizado', this.usuario.nombre, 'success');
-    this.guadarStorage(id,this.token,this.usuario);
+    this.guadarStorage(id,this.token,this.usuario,this.menu);
   })
   .catch(resp => {
   console.log(resp);

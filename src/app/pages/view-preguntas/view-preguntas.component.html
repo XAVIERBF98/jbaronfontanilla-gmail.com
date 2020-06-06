@@ -1,0 +1,56 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Questions</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <!-- ngRepeat: question in testCtrl.questions -->
+        <table>
+            <tbody>
+                <tr *ngFor="let pregunta of examen.preguntas">
+                    <li class="list-group-item list-group-item-primary ng-binding">{{pregunta.question}}</li>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <li class="list-group-item list-group-item-warning ng-binding">1){{pregunta.optionA}}</li>
+                        </div>
+                        <div class="col-sm-6">
+                            <li class="list-group-item list-group-item-warning ng-binding">2){{pregunta.optionB}}</li>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <li class="list-group-item list-group-item-warning ng-binding">3){{pregunta.optionC}}</li>
+                        </div>
+                        <div class="col-sm-6">
+                            <li class="list-group-item list-group-item-warning ng-binding">4){{pregunta.optionD}}</li>
+                        </div>
+                    </div>
+                    <div class=".d-sm-flex align-items-center row">
+                        <div class="col-sm">
+                            Respuesta: <b class="text-danger ng-binding">{{pregunta.answer}}</b>
+                        </div>
+                        <div class="col-sm">
+                            <button type="button" data-dismiss="modal" data-toggle="modal" ng-click="testCtrl.editQuestion(question._id)" data-target="#EditQuestionModal" class="btn btn-outline-primary"><i class="fa fa-fw fa-pencil" aria-hidden="true"></i>Edit</button>
+                            <button type="button" data-toggle="modal" ng-click="testCtrl.deleteQuestion(question._id)" class=" btn btn-outline-danger"><i class="fa fa-fw fa-trash" aria-hidden="true"></i>Delete</button>
+                        </div>
+                    </div>
+                </tr>
+            </tbody>
+        </table>
+        <ul class="list-group ng-scope" style="">
+
+
+
+            <li class="list-group-item">
+
+            </li>
+        </ul>
+        <!-- end ngRepeat: question in testCtrl.questions -->
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+</div>

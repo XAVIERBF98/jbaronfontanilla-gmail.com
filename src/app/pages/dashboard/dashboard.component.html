@@ -1,1 +1,14 @@
-<p>dashboard works!</p>
+<div class="card text-white bg-info">
+    <div class="card-body">
+        <div class="card-body-icon">
+            <i class="fa fa-fw fa-file"></i>
+        </div>
+        <div class="mr-5">{{_examenService.totalExamenes}} Examenes Habilitados</div>
+    </div>
+    <a class="card-footer text-white clearfix small z-1 pointer" ui-sref="dashboard.tests" [routerLink]="['/AllTest']">
+        <span class="float-left">Ver Examenes</span>
+        <span class="float-right">
+        <i class="fa fa-angle-right"></i>
+      </span>
+    </a>
+</div>

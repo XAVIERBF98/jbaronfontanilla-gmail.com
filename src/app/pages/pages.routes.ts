@@ -12,6 +12,15 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { ProfesoresComponent } from './profesores/profesores.component';
 import { ProfesorComponent } from './profesores/profesor.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
+import { AdminGuard } from '../services/guards/admin.guard';
+import { ExamenesComponent } from './examenes/examenes.component';
+import { PreguntasComponent } from './preguntas/preguntas.component';
+import { ExamenComponent } from './examen/examen.component';
+import { PreguntaComponent } from './pregunta/pregunta.component';
+import { ViewPreguntasComponent } from './view-preguntas/view-preguntas.component';
+import { AllExamComponent } from './all-exam/all-exam.component';
+import { LiveTestComponent } from './live-test/live-test.component';
 
 const pagesRoutes: Routes = [
     {
@@ -25,9 +34,27 @@ const pagesRoutes: Routes = [
             {path: 'promesas', component: PromesasComponent, data: {titulo: 'Promesas'}},
             {path: 'rxjs', component: RxjsComponent, data: {titulo: 'RxJs'}},
             {path: 'account-settings', component: AccountSettingsComponent, data: {titulo: 'Ajustes del Tema'}},
-            {path: 'perfil', component: ProfileComponent, data: {titulo: 'Perfil de Usuario'}},
+            {path: 'perfil', component: ProfileComponent, data: {titulo: 'Pefil del Usuario'}},
+            {path: 'busqueda/:termino', component: BusquedaComponent, data: {titulo: 'Buscador '}},
+           //Examenes
+           {path: 'examenes', component: ExamenesComponent, data: {titulo: 'Examenes'}},
+           {path: 'examen/:id', component: ExamenComponent, data: {titulo: 'Actualizar Examen'}},
+           {path: 'preguntas', component: PreguntasComponent, data: {titulo: 'Preguntas'}},
+           {path: 'pregunta/:id', component: PreguntaComponent, data: {titulo: 'Actualizar Preguntas'}},
+           {path: 'Viewpreguntas/:id', component: ViewPreguntasComponent, data: {titulo: 'Ver Preguntas'}},
+           {path: 'liveExamen/:id', component: LiveTestComponent, data: {titulo: 'Presentar Examen'}},
+           
+
+           //TomarExamenes
+           {path: 'AllTest', component: AllExamComponent, data: {titulo: 'Examenes Disponibles'}},
+           
+
             //mantenimientos
-            {path: 'usuarios', component: UsuariosComponent, data: {titulo: 'Mantenimiento de usuarios'}},
+            {path: 'usuarios',
+             component: UsuariosComponent, 
+             canActivate:[AdminGuard],
+             data: {titulo: 'Mantenimiento de usuarios'}},
+            
             {path: 'cursos', component: CursosComponent, data: {titulo: 'Mantenimiento de Cursos'}},
             {path: 'profesores', component: ProfesoresComponent, data: {titulo: 'Mantenimiento de Profesores'}},
             {path: 'profesor/:id', component: ProfesorComponent, data: {titulo: 'Actualizar Profesor'}},

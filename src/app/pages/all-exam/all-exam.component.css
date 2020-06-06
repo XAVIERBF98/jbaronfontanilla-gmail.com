@@ -1,0 +1,13 @@
+.border-bottom {
+    border-bottom: 1px solid gray;
+}
+
+.border-card {
+    border: 1px solid black;
+}
+
+.border-cardR {
+    border-radius: 4%;
+}
+
+.title-card {}

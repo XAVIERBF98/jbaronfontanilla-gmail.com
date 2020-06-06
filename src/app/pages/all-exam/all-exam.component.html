@@ -1,0 +1,18 @@
+<table>
+    <tbody>
+        <tr *ngFor="let examen of examenes">
+            <td>
+                <div class="card-body border-card border-cardR">
+                    <h4 class="card-title border-bottom text-info"><strong>{{examen.titulo}}</strong>
+                        <span class="pull-right"><i class="mdi mdi-timer-sand"></i> {{examen.tiempo}} Min</span>
+                    </h4>
+                    <p class="card-text ng-binding" style="color: black;">{{examen.descripcion}}</p>
+                    <button [routerLink]="[ '/liveExamen',examen._id]" type="button" class="taketest btn btn-outline-dark ng-scope"> Tomar Examen</button>
+                    <button ng-if="admin == false" type="button" ng-disabled="[].length == 0" class="btn btn-outline-dark ng-scope" disabled="disabled"> Ver Resultados</button>
+                </div>
+                <br>
+            </td>
+
+        </tr>
+    </tbody>
+</table>

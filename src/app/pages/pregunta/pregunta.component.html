@@ -1,0 +1,50 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Pregunta al Examen</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form #f="ngForm" ngNativeValidate (ngSubmit)="guardarPregunta(f)">
+            <div class="form-group">
+                <div class="input-group">
+                    <input disabled [(ngModel)]="examen._id" name="id" class="form-control" placeholder="Test Id" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <textarea rows="3" [(ngModel)]="pregunta.question" name="question" class="form-control" placeholder="Question.." type="text" value="" required=""></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <input [(ngModel)]="pregunta.optionA" name="optionA" class="form-control" placeholder="Option A" type="text" value="" required="">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <input [(ngModel)]="pregunta.optionB" name="optionB" class="form-control" placeholder="Option B" type="text" value="" required="">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <input [(ngModel)]="pregunta.optionC" name="optionC" class="form-control" placeholder="Option C" type="text" value="" required="">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <input [(ngModel)]="pregunta.optionD" name="optionD" class="form-control" placeholder="Option D" type="text" value="" required="">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <input [(ngModel)]="pregunta.answer" name="answer" class="form-control" placeholder="Answer(1,2,3 or 4)" type="number" value="" required="">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-lg btn-primary btn-block" value="Create Test" required="">
+            </div>
+        </form>
+    </div>
+</div>

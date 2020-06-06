@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ExamenService } from '../../services/examen/examen.service';
-import { Test } from '../../models/Quiz.model';
+import { Test } from 'src/app/models/Quiz.model';
+import { ExamenService } from 'src/app/services/service.index';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styles: []
+  selector: 'app-all-exam',
+  templateUrl: './all-exam.component.html',
+  styleUrls: ['./all-exam.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class AllExamComponent implements OnInit {
   totalExamenes: number = 0;
   desde: number = 0;
   examenes:Test[]=[]

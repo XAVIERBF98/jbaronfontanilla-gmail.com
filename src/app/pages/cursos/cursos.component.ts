@@ -62,6 +62,7 @@ export class CursosComponent implements OnInit {
       .subscribe(() => this.cargarCursos());
     })
   }
+  
   actualizarImage(curso: Curso){
     this._modalUploadService.mostrarModal('cursos',curso._id);
   }

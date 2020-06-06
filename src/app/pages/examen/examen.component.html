@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-2 "></div>
+    <div class="col-md-8 ">
+        <div class="card text-center ">
+            <div class="card-header ">
+                <h3 class=" card-title"> Formulario de Examen</h3>
+            </div>
+            <div class="card-body">
+                <form #f="ngForm" ngNativeValidate (ngSubmit)="guardarExamen(f)">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input [(ngModel)]="examenen.titulo" name="titulo" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" placeholder="Titulo del Examen" type="text" autofocus="" required="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input [(ngModel)]="examenen.descripcion" name="descripcion" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" placeholder="Descripcion del Examen" type="text" autofocus="" required="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input [(ngModel)]="examenen.tiempo" name="tiempo" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" placeholder="Duracion del Examen" type="number" autofocus="" required="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <textarea rows="8" [(ngModel)]="examenen.instrucciones" name="instrucciones" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" placeholder=" Instrucciones del Examen" type="text" value="" required=""></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Create Test" required="">
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2 "></div>
+</div>

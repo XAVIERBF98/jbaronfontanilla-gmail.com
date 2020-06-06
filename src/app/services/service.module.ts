@@ -7,6 +7,9 @@ import { SubirArchivoService } from './service.index';
 import { ModalUploadService } from '../components/modal-upload/modal-upload.service';
 import { CursoService } from './service.index';
 import { ProfesorService } from './profesor/profesor.service';
+import { AdminGuard } from './guards/admin.guard';
+import { ExamenService } from './service.index';
+import { PreguntaService } from './pregunta/pregunta.service';
 
 
 @NgModule({
@@ -23,7 +26,10 @@ import { ProfesorService } from './profesor/profesor.service';
     SubirArchivoService,
     ModalUploadService,
     CursoService,
-    ProfesorService
+    ProfesorService,
+    AdminGuard,
+    ExamenService,
+    PreguntaService
   ]
 })
 export class ServiceModule { }
