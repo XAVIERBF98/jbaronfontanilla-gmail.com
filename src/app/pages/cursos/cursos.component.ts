@@ -50,9 +50,9 @@ export class CursosComponent implements OnInit {
     swal({
       title: 'Crear Curso',
       text:'Ingrese el nombre del Curso',
-      content: "input",
+      //content: "input",
       icon: 'info',
-      buttons: true,
+      buttons: [true,'true'],
       dangerMode:true
     }).then( (valor: string) => {
       if(!valor || valor.length==0){

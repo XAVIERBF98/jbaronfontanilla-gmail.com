@@ -48,7 +48,7 @@ o
       });
   }
 
-  submitAnswers=()=>{
+/*  submitAnswers=()=>{
     var performanceInfo={
       email:live.email,
       testid:live.testid,
@@ -61,7 +61,7 @@ o
 
 
 }
-
+*/
 guardarExamen(f: NgForm) {
   if (f.invalid) {
     return;
