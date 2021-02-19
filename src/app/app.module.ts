@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Servicios
 import { ServiceModule } from './services/service.module';
+import { AllCourseComponent } from './pages/all-course/all-course.component';
 
 
 
@@ -28,6 +29,7 @@ import { ServiceModule } from './services/service.module';
     AppComponent,
     LiginComponent,
     RegisterComponent,
+    AllCourseComponent,
   ],
   imports: [
     BrowserModule,
